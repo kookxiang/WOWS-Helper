@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("WOWS Helper")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("kookxiang")]
 [assembly: AssemblyProduct("WOWS Helper")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © kookxiang 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

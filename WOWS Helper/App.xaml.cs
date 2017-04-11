@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Diagnostics;
 
 namespace WOWS_Helper
 {
     /// <summary>
     /// App.xaml 的交互逻辑
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
+        public static void Restart()
+        {
+            if (ResourceAssembly.Location == null) return;
+            Process.Start(ResourceAssembly.Location);
+            Current.Shutdown();
+        }
     }
 }
