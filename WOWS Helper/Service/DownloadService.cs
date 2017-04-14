@@ -1,12 +1,11 @@
-﻿using System;
-using CookComputing.XmlRpc;
+﻿using CookComputing.XmlRpc;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Xml.Linq;
 using WOWS_Helper.Mapper;
 using WOWS_Helper.Properties;
@@ -138,8 +137,8 @@ namespace WOWS_Helper.Service
 
         public async void DownloadGameUpdate()
         {
-            StartAria2();
         START_DOWNLOAD:
+            StartAria2();
             LauncherViewModel.UpdateStatusText("正在下载游戏更新...");
             await updateDownloadListAsync();
             LauncherViewModel.UpdateStatusText("正在下载游戏更新 (" + Math.Round(TotalSize / 10485.76) / 100 + "MB)...");
@@ -175,6 +174,7 @@ namespace WOWS_Helper.Service
             if (!isAllValid)
             {
                 LauncherViewModel.UpdateStatusText("部分更新文件损坏, 5 秒后自动重新下载...");
+                StopAria2();
                 await Task.Delay(5000);
                 goto START_DOWNLOAD;
             }
