@@ -1,0 +1,20 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration: Release
+shallow_clone: true
+cache: packages
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+before_build:
+- ps: nuget restore
+build:
+  project: WOWS Helper.sln
+  verbosity: normal
+after_build:
+- ps: cd "WOWS Helper\bin\Release"; 7z a ../../../WOWS-Helper.7z "WOWS Helper.exe" "*.dll"
+artifacts:
+- path: WOWS-Helper.7z
