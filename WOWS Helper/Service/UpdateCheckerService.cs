@@ -18,7 +18,7 @@ namespace WOWS_Helper.Service
             LauncherViewModel.UpdateStatusText("正在检查更新...");
             config = new LauncherConfig();
 
-            var request = WebRequest.Create(config.UpdateServer + "/?protocol_ver=4&target=launcher,client,locale,sdcontent&launcher_ver=" + config.LauncherVersion + "&client_ver=" + config.ClientVersion + "&locale_ver=" + config.LocaleVersion + "&sdcontent_ver=" + config.SdContentVersion + "&lang=" + config.Language);
+            var request = WebRequest.Create(config.GetUpdateUrl());
             var response = await request.GetResponseAsync();
             var outStream = response.GetResponseStream();
             var responseText = new StreamReader(outStream).ReadToEnd();

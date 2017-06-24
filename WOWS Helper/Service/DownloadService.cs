@@ -105,7 +105,7 @@ namespace WOWS_Helper.Service
             };
             var tasks = targetList.Select(async target =>
             {
-                var request = WebRequest.Create(config.UpdateServer + "/?protocol_ver=4&target=" + target + "&launcher_ver=" + config.LauncherVersion + "&client_ver=" + config.ClientVersion + "&locale_ver=" + config.LocaleVersion + "&sdcontent_ver=" + config.SdContentVersion + "&lang=" + config.Language);
+                var request = WebRequest.Create(config.GetUpdateUrl());
                 var response = await request.GetResponseAsync();
                 var outStream = response.GetResponseStream();
                 Debug.Assert(outStream != null, "outStream != null");
